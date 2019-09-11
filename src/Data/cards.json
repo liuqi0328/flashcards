@@ -1,0 +1,39 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "question": "How can you avoid callback hells?",
+      "answer": "Refactoring the functions to return promises and using async/await is usually the best option. Instead of supplying the functions with callbacks that cause deep nesting, they return a promise that can be awaited and will be resolved once the data has arrived, allowing the next line of code to be evaluated in a sync-like fashion.There are lots of ways to solve the issue of callback hells:\r-Modularization: break callbacks into independent functions\n-Use a control flow library, like async\n-Use generators with Promises\n-Use async/await (from v7 on)",
+      "gth": "As an efficient JavaScript developer, you have to avoid the constantly growing indentation level, produce clean and readable code and be able to handle complex flows.",
+      "link": "From callback hell to await & async: https://blog.hellojs.org/asynchronous-javascript-from-callback-hell-to-async-and-await-9b9ceb63c8e8"
+    },
+    {
+      "id": 2,
+      "question": "What is a closure? Can you give a useful example of one?",
+      "answer": "A closure is a function defined inside another function and has access to its lexical scope even when it is executing outside its lexical scope. The closure has access to variables in three scopes:\r\n-Variables declared in its own scope\n-Variables declared in the scope of the parent function\n-Variables declared in the global scope\rIn JavaScript, all functions are closures because they have access to the outer scope, but most functions don't utilise the usefulness of closures: the persistence of state. Closures are also sometimes called stateful functions because of this.\rIn addition, closures are the only way to store private data that can't be accessed from the outside in JavaScript. They are the key to the UMD (Universal Module Definition) pattern, which is frequently used in libraries that only expose a public API but keep the implementation details private, preventing name collisions with other libraries or the user's own code.",
+      "gth": "-Closures are useful because they let you associate data with a function that operates on that data.\n-A closure can substitute an object with only a single method.\n-Closures can be used to emulate private properties and methods.",
+      "link": "https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8"
+    },
+    {
+      "id": 3,
+      "question": "What is context?",
+      "answer": "Context provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.\r\nconst { Provider, Consumer } = React.createContext(defaultValue)",
+      "gth": "-Context provides a way to pass data through a tree of React components, without having to manually pass props.\n-Context is designed to share data that is considered global for a tree of React components.",
+      "link": "https://reactjs.org/docs/context.html"
+    },
+    {
+      "id": 4,
+      "question": "Can you describe how CSS specificity works?",
+      "answer": "Assuming the browser has already determined the set of rules for an element, each rule is assigned a matrix of values, which correspond to the following from highest to lowest specificity:\n\r-Inline rules (binary - 1 or 0)\n-Number of id selectors\n-Number of class, pseudo-class and attribute selectors\n-Number of tags and pseudo-element selectors\rWhen two selectors are compared, the comparison is made on a per-column basis (e.g. an id selector will always be higher than any amount of class selectors, as ids have higher specificity than classes). In cases of equal specificity between multiple rules, the rules that comes last in the page's style sheet is deemed more specific and therefore applied to the element.",
+      "gth": "-Specificity matrix: [inline, id, class/pseudo-class/attribute, tag/pseudo-element]\n-In cases of equal specificity, last rule is applied",
+      "link": ""
+    },
+    {
+      "id": 5,
+      "question": "What is REST?",
+      "answer": "REST (REpresentational State Transfer) is a software design pattern for network architecture. A RESTful web application exposes data in the form of information about its resources.\rGenerally, this concept is used in web applications to manage state. With most applications, there is a common theme of reading, creating, updating, and destroying data. Data is modularized into separate tables like posts, users, comments, and a RESTful API exposes access to this data with:\n\r-An identifier for the resource. This is known as the endpoint or URL for the resource.\n-The operation the server should perform on that resource in the form of an HTTP method or verb. The common HTTP methods are GET, POST, PUT, and DELETE.\rHere is an example of the URL and HTTP method with a posts resource:\n\r-Reading: /posts/ => GET\n-Creating: /posts/new => POST\n-Updating: /posts/:id => PUT\n-Destroying: /posts/:id => DELETE",
+      "gth": "Alternatives to this pattern like GraphQL",
+      "link": "https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f"
+    }
+  ]
+}
